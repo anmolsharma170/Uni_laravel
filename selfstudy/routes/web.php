@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\StudentController;
 Route::get('/', function () {
     return view('welcome');
 });
@@ -35,3 +35,7 @@ Route::get('/post/{id}',function(string $id){
         return "<h1>No ID found</h1>";
     }
 })->whereNumber('id');
+
+Route::get('/age18',[StudentController::class,'ageGreaterThan18']);
+Route::get('/gradeAB',[StudentController::class,'gradeAorB']);
+Route::get('/registered',[StudentController::class,'registeredBetween']);
