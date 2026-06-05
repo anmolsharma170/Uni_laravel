@@ -12,6 +12,15 @@ return Application::configure(basePath: dirname(__DIR__))
     )
     ->withMiddleware(function (Middleware $middleware): void {
         //
+        $middleware->alias([
+            'agecheck' => App\Http\Middleware\AgeCheck::class,
+        ]);
+        $middleware->alias([
+            'age'=> \App\Middleware\CkeckAge::class,
+        ]);
+        $middleware->alias([
+            'locale'=> \App\Http\Middleware\SetLocale::class,
+        ]);
     })
     ->withExceptions(function (Exceptions $exceptions): void {
         //

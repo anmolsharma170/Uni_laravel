@@ -1,0 +1,1 @@
+<h1>You must be above 18 to access this website.</h1>
