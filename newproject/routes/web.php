@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Models\StudentTable;
+use App\Http\Controllers\ThemeController;
 Route::get('/', function () {
     return view('welcome');
 });
@@ -17,3 +18,7 @@ Route::get('/grade-students',function(){
 Route::get('/date-students',function(){
     return StudentTable::whereBetween('registration_date'>['12-11-25','20-11-25'])->get();
 });
+
+Route::get('/',[ThemeController::class,'home']);
+
+Route::get('/theme/{theme}',[ThemeController::class,'setTheme']);
